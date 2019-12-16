@@ -10,7 +10,7 @@ const videoSrc = `https://www.youtube.com/embed/${video.id.videoId}`
     return (
        <React.Fragment>
            <Paper elevation={1} style={{height: '70%'}}>
-            <iframe src="" frameBorder="0" height="100%" width="100%" title="Video Player" src={videoSrc}></iframe>
+            <iframe src="" frameBorder="0" height="100%" textAlign="center" width="100%" title="Video Player" src={videoSrc}></iframe>
            </Paper>
 
            <Paper elevation={2} style={{padding: '15px'}}>

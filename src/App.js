@@ -14,6 +14,10 @@ state = {
   selectedVideo: null,
 }
 
+componentDidMount(){
+  this.handleSubmit('javascript crash course')
+}
+
 handleSubmit = async (searchTerm) =>{
 const res = await youtube.get('search',{
   params: {
@@ -25,11 +29,19 @@ const res = await youtube.get('search',{
 });
 console.log(res.data.items);
 
+
 this.setState({
   videos: res.data.items,
   selectedVideo: res.data.items[0]
 });
 }
+
+
+onVideoClick = (video) => {
+  this.setState({
+    selectedVideo: video
+  })
+  };
 
   render() {
 const { selectedVideo, videos } = this.state;
@@ -51,7 +63,7 @@ const { selectedVideo, videos } = this.state;
             </Grid>
             <Grid item xs={4}>
             {/* video lists */}
-            <VideoList videos={videos}/>
+            <VideoList videos={videos} onVideoClick={this.onVideoClick}/>
             </Grid>
           </Grid>
         </Grid>
